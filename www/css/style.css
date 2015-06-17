@@ -1,0 +1,40 @@
+/* LAPMobile Theme Config */
+.theme {
+	background-color: #308014 !important;
+}
+
+.spinner svg {
+	width: 88px;
+	height: 88px;
+	stroke: #308014;
+	fill: #308014;
+}
+
+.top {
+	background-color: #009688;
+}
+
+.title {
+	color: #fff;
+}
+
+.icon {
+	color: #fff;
+}
+
+.grey {
+	color: #555;
+}
+
+
+/* Main Page */
+
+.purchased {
+	color: #9e9e9e;
+	text-decoration: line-through;
+}
+
+.image-fill {
+	margin-left: -5%;
+	width: 110%;
+}
