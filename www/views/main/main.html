@@ -1,4 +1,4 @@
-<ion-view view-title="Main" ng-controller="MainCtrl">
+<ion-view view-title="Main">
 	<ion-nav-title>
 	    <div class="title item-input-inset">
 	        <label class="item-input-wrapper" style="margin-top:-4px">
@@ -18,11 +18,11 @@
 		</div>
 		
 		<ion-refresher pulling-text="Pull to refresh..." on-refresh="doRefresh()"></ion-refresher>
-		<!-- <div class="list card unveil" ng-repeat="item in items | filter:query">
+		<div class="list card unveil" ng-repeat="item in items | filter:query">
 			<div class="item item-avatar">
 				<img src="img/yvonne-low.jpg">
 				<h2>{{item.name}}</h2>
-				<p>November 05, 1965</p>
+				<p am-time-ago="item.timestamp"></p>
 			</div>
 
 			<div class="item item-body">
@@ -48,7 +48,7 @@
 					Share
 				</a>
 			</div>
-		</div> -->
+		</div>
 		<ion-list>
 			<ion-item class="unveil" ng-repeat="item in items | filter:query" ng-class="{purchased: item.status === 'purchased'}">
 				{{item.name}}

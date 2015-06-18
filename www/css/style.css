@@ -1,5 +1,6 @@
 /* LAPMobile Theme Config */
 .theme {
+	color: #fff;
 	background-color: #308014 !important;
 }
 
@@ -26,6 +27,13 @@
 	color: #555;
 }
 
+.full-background {
+	background: url(../img/sydney.jpg) no-repeat center center fixed; 
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+}
 
 /* Main Page */
 
