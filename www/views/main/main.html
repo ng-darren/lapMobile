@@ -17,7 +17,8 @@
 			<div class="col"><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br></div>
 		</div>
 		
-		<div class="list card unveil" ng-repeat="item in items | filter:query">
+		<ion-refresher pulling-text="Pull to refresh..." on-refresh="doRefresh()"></ion-refresher>
+		<!-- <div class="list card unveil" ng-repeat="item in items | filter:query">
 			<div class="item item-avatar">
 				<img src="img/yvonne-low.jpg">
 				<h2>{{item.name}}</h2>
@@ -47,8 +48,7 @@
 					Share
 				</a>
 			</div>
-
-		</div>
+		</div> -->
 		<ion-list>
 			<ion-item class="unveil" ng-repeat="item in items | filter:query" ng-class="{purchased: item.status === 'purchased'}">
 				{{item.name}}
@@ -58,5 +58,6 @@
 				</ion-option-button>
 			</ion-item>
 		</ion-list>
+		<ion-infinite-scroll ng-if="isMoreDataLoadable()" icon="ion-loading-c" on-infinite="loadMoreData()"></ion-infinite-scroll>
 	</ion-content>
 </ion-view>

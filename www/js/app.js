@@ -1,4 +1,4 @@
-angular.module('lapMobile', ['ionic', 'firebase', 'lapMobile.frame', 'lapMobile.items', 'lapMobile.main'])
+angular.module('lapMobile', ['ionic', 'firebase', 'lapMobile.frame', 'lapMobile.items', 'lapMobile.camera', 'lapMobile.main', 'lapMobile.elasticTextarea'])
 .constant('FIREBASEURL', 'https://lapMobile.firebaseio.com/')
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
@@ -61,4 +61,7 @@ angular.module('lapMobile', ['ionic', 'firebase', 'lapMobile.frame', 'lapMobile.
   // 
   // if none of the above states are matched, use this as the fallback
   $urlRouterProvider.otherwise('/app/main');
+})
+.config(function($compileProvider){
+  $compileProvider.imgSrcSanitizationWhitelist(/^\s*(https?|ftp|mailto|file|tel):/);
 });
