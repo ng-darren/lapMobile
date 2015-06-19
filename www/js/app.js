@@ -50,7 +50,7 @@ angular.module('lapMobile', [
       // });
       // 
       // if none of the above states are matched, use this as the fallback
-      $urlRouterProvider.otherwise('/app/register');
+      $urlRouterProvider.otherwise('/app/main');
     })
     .config(function($compileProvider){
       $compileProvider.imgSrcSanitizationWhitelist(/^\s*(https?|ftp|mailto|file|tel):/);
