@@ -8,7 +8,7 @@ angular.module('lapMobile', [
     'lapMobile.items',  // Services
     'lapMobile.camera',
 
-    'lapMobile.register',   // Views
+    'lapMobile.login',   // Views
 
     'lapMobile.elasticTextarea' // Directives
     ])
@@ -20,21 +20,21 @@ angular.module('lapMobile', [
             templateUrl: "templates/frame.html",
             controller: 'AppCtrl'
         })
+        .state('app.login', {
+            url: "/login",
+            views: {
+                'menuContent': {
+                    templateUrl: "views/login/login.html",
+                    controller: 'loginCtrl'
+                }
+            }
+        })
         .state('app.main', {
             url: "/main",
             views: {
                 'menuContent': {
                     templateUrl: "views/main/main.html",
                     controller: 'MainCtrl'
-                }
-            }
-        })
-        .state('app.register', {
-            url: "/register",
-            views: {
-                'menuContent': {
-                    templateUrl: "views/register/register.html",
-                    controller: 'RegisterCtrl'
                 }
             }
         })

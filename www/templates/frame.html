@@ -1,9 +1,9 @@
 <ion-side-menus enable-menu-with-back-views="false">
   <ion-side-menu-content>
     <ion-nav-bar class="bar-balanced theme">
-      <ion-nav-back-button class="button-clear">
-        <i class="ion-arrow-left-c"></i> Back
-      </ion-nav-back-button>
+      <!-- <ion-nav-back-button class="button-clear" ng-hide="isBackEnabled()">
+        <i class="ion-arrow-left-c"></i>
+      </ion-nav-back-button> -->
 
       <ion-nav-buttons side="left">
         <button class="button button-icon button-clear ion-navicon" menu-toggle="left"></button>
@@ -13,9 +13,7 @@
   </ion-side-menu-content>
 
   <ion-side-menu is-enabled="isSideMenuEnabled()" side="left">
-    <ion-header-bar class="bar-balanced theme">
-      <h1 class="title">Left</h1>
-    </ion-header-bar>
+    <ion-header-bar class="bar-balanced theme"></ion-header-bar>
     <ion-content>
       <div class="item tabs tabs-secondary tabs-icon-top">
         <a class="tab-item" href="#">
@@ -40,7 +38,7 @@
         <ion-item menu-close ng-click="login()">
           Login
         </ion-item>
-        <ion-item menu-close href="#/app/register">
+        <ion-item menu-close href="#/app/login">
           Register
         </ion-item>
         <ion-item menu-close href="#/app/search">

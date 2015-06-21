@@ -8,7 +8,7 @@ angular.module('lapMobile.frame', [])
   //});
 
   $scope.isSideMenuEnabled = function() {
-    if($state.current.name === 'app.register') {
+    if($state.current.name === 'app.login') {
       return false;
     } else {
       return true;

@@ -19,16 +19,25 @@
 	color: #fff;
 }
 
-.icon {
-	color: #fff;
-}
-
 .grey {
 	color: #555;
 }
 
+.white {
+	color: #fff;
+}
+
+.black {
+	color: #111;
+}
+
+/* Login Page */
+#loginForm .list, #loginForm .list .item, #loginCard, #loginCard .item, #loginCard .list, #loginCard .list .item input {
+	background-color: transparent;
+}
+
 .full-background {
-	background: url(../img/sydney.jpg) no-repeat center center fixed; 
+	background: url(../img/login-background.jpg) no-repeat center center fixed; 
 	-webkit-background-size: cover;
 	-moz-background-size: cover;
 	-o-background-size: cover;
@@ -43,6 +52,6 @@
 }
 
 .image-fill {
-	margin-left: -5%;
+	margin: -16px 0 0 -5%;
 	width: 110%;
 }

@@ -1,0 +1,52 @@
+<ion-view hide-nav-bar="true" class="full-background">
+	<ion-content>
+		<div id="loginCard" class="card" ng-init="forgotP = false">
+			<div class="item item-text-wrap">
+				<h1 class="white">Lorem Ipsum</h1>
+				<h3 class="white" style="margin-top: -10px;">Lorem ipsum dolor sit amet, consectetur adipisicing elit</h3>
+				<div class="list list-inset padding">
+					<label class="item item-input padding">
+						<button class="button button-block button-positive ion-social-facebook"> Sign in with Facebook </button>
+					</label>
+					<br>
+				</div>
+
+				<form id="loginForm" ng-submit="login()" ng-show="!forgotP">
+					<div class="list list-inset">
+						<label class="item item-input item-stacked-label">
+							<i class="icon ion-person placeholder-icon black"></i>
+							<span class="input-label">Username</span>
+							<input type="text" placeholder="Username">
+						</label>
+						<label class="item item-input item-stacked-label">
+							<i class="icon ion-locked placeholder-icon black"></i>
+							<span class="input-label">Password</span>
+							<input type="password" placeholder="Password" class="white">
+						</label>
+
+						<label class="item">
+							<button class="button button-block button-positive" type="submit" ng-disabled="newEventForm.$invalid || newEventData.loading"> Login </button>
+							<button class="button button-block button-stable" ng-click="forgotP = !forgotP"> Register</button>
+						</label>
+					</div>
+				</form>
+				<small style="float: right" ng-click="forgotP=!forgotP" ng-show="!forgotP"><a href="#" class="white" style="text-decoration: none" >Forgot Password</a></small>
+				
+				<form id="loginForm" ng-submit="login()" ng-show="forgotP">
+					<div class="list list-inset">
+						<label class="item item-input item-stacked-label">
+							<i class="icon ion-email placeholder-icon black"></i>
+							<span class="input-label">Email</span>
+							<input type="email" placeholder="Email" class="white">
+						</label>
+
+						<label class="item">
+							<button class="button button-block button-positive" type="submit" ng-disabled="newEventForm.$invalid || newEventData.loading"> Reset Password </button>
+						</label>
+					</div>
+				</form>
+				<small style="float: left" ng-show="forgotP"><a href="#" class="white" style="text-decoration: none" ng-click="forgotP=!forgotP">Back</a></small>
+			</div>
+		</div>
+	</ion-content>
+</ion-view>

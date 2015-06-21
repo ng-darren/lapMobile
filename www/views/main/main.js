@@ -9,15 +9,17 @@ angular.module('lapMobile.main', [])
 
     $scope.doRefresh = function () {
         // $scope.items.unshift(Items.getLastTen());
-    }
+        // Stop the ion-refresher from spinning
+        $scope.$broadcast('scroll.refreshComplete');
+    };
 
     $scope.loadMoreData = function () {
         // $scope.items.unshift(Items.getLastTen());
-    }
+    };
 
     $scope.isMoreDataLoadable = function () {
         // $scope.items.unshift(Items.getLastTen());
-    }
+    };
 
     // Form data add new event modal
     $scope.newEventData = {
