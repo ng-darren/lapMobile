@@ -5,7 +5,8 @@ angular.module('lapMobile', [
     'lapMobile.main',
     'lapMobile.frame',
 
-    'lapMobile.items',  // Services
+    'lapMobile.seed',  // Services
+    'lapMobile.event',
     'lapMobile.camera',
 
     'lapMobile.login',   // Views
@@ -48,7 +49,7 @@ angular.module('lapMobile', [
       //     }
       //   }
       // });
-      // 
+      
       // if none of the above states are matched, use this as the fallback
       $urlRouterProvider.otherwise('/app/main');
     })

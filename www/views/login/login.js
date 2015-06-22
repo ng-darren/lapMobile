@@ -1,5 +1,5 @@
 angular.module('lapMobile.login', [])
-  .controller('loginCtrl', function($scope, $state, $ionicListDelegate, $ionicModal, $ionicBackdrop, Items, Camera) {
+  .controller('loginCtrl', function($scope, $state, $ionicListDelegate, $ionicModal, $ionicBackdrop, Event, Camera) {
     $scope.forgotP = false;
 
     $scope.forgotPassword = function() {
@@ -13,7 +13,6 @@ angular.module('lapMobile.login', [])
 
     // Add event when user submits form in modal
     $scope.addEvent = function() {
-        // var name = prompt('What do you need to buy?');
         if ($scope.newEventData.name) {
             $scope.newEventData.loading = true;
             Items.createItem($scope.newEventData.name, $scope.newEventData.description).then(function() {

@@ -1,24 +1,24 @@
 angular.module('lapMobile.main', [])
-  .controller('MainCtrl', function($scope, $ionicListDelegate, $ionicModal, $ionicBackdrop, FIREBASEURL, Items, Camera) {
-    // $scope.items = Items.getAll();
-    $scope.items = Items.getLastTen();
+  .controller('MainCtrl', function($scope, $ionicListDelegate, $ionicModal, $ionicBackdrop, FIREBASEURL, Event, Camera) {
+    // $scope.event = event.getAll();
+    $scope.events = Event.getLastTen();
 
     $scope.search = function (q) {
         $scope.query = q;
     };
 
     $scope.doRefresh = function () {
-        // $scope.items.unshift(Items.getLastTen());
+        // $scope.event.unshift(Event.getLastTen());
         // Stop the ion-refresher from spinning
         $scope.$broadcast('scroll.refreshComplete');
     };
 
     $scope.loadMoreData = function () {
-        // $scope.items.unshift(Items.getLastTen());
+        // $scope.event.unshift(Event.getLastTen());
     };
 
     $scope.isMoreDataLoadable = function () {
-        // $scope.items.unshift(Items.getLastTen());
+        // $scope.event.unshift(Event.getLastTen());
     };
 
     // Form data add new event modal
@@ -45,10 +45,9 @@ angular.module('lapMobile.main', [])
 
     // Add event when user submits form in modal
     $scope.addEvent = function() {
-        // var name = prompt('What do you need to buy?');
         if ($scope.newEventData.name) {
             $scope.newEventData.loading = true;
-            Items.createItem($scope.newEventData.name, $scope.newEventData.description).then(function() {
+            Event.createEvent($scope.newEventData.name, $scope.newEventData.description).then(function() {
                 $scope.newEventData = {
                     loading: false
                 };
@@ -66,8 +65,8 @@ angular.module('lapMobile.main', [])
     };
 
     $scope.purchaseItem = function (item) {
-        var itemsRef = new Firebase(FIREBASEURL + 'items/' + item.$id);
-        itemsRef.child('status').set('purchased');
+        var eventRef = new Firebase(FIREBASEURL + 'event/' + item.$id);
+        eventRef.child('status').set('purchased');
         $ionicListDelegate.closeOptionButtons();
     };
 });

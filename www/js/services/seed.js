@@ -1,17 +1,16 @@
 'use strict';
 
-angular.module('lapMobile.items', []).factory('Items', function ($firebaseArray, FIREBASEURL) {
-	// var itemsRef = new Firebase(FIREBASEURL + 'items');
-	var itemsRef = new Firebase(FIREBASEURL).child('items');
+angular.module('lapMobile.seed', []).factory('Seed', function ($firebaseArray, FIREBASEURL) {
+	var eventRef = new Firebase(FIREBASEURL).child('seed');
 
-	var ref, sync, itemsArray;
+	var ref, sync, eventArray;
 
-    var Item = {
+    var Event = {
       getAll: function () {
-        return $firebaseArray(itemsRef);
+        return $firebaseArray(eventRef);
       },
       getLastTen: function () {
-      	var query = itemsRef.orderByKey().limitToLast(2);
+      	var query = eventRef.orderByKey().limitToLast(2);
 
         return $firebaseArray(query);
       },
@@ -29,9 +28,9 @@ angular.module('lapMobile.items', []).factory('Items', function ($firebaseArray,
         //   return null;
         // }
       },
-      createItem: function (name, description) {
-      	itemsArray = $firebaseArray(itemsRef);
-      	return itemsArray.$add({
+      createEvent: function (name, description) {
+      	eventArray = $firebaseArray(eventRef);
+      	return eventArray.$add({
             'name': name,
             'description': description,
             'timestamp': Date.now()
@@ -80,6 +79,6 @@ angular.module('lapMobile.items', []).factory('Items', function ($firebaseArray,
       }
     };
 
-    return Item;
-	// return $firebaseArray(itemsRef);
+    return Event;
+	// return $firebaseArray(eventRef);
 });
