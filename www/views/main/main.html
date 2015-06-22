@@ -23,15 +23,16 @@
 	    </div>
 
 	    <ion-refresher pulling-text="Pull to refresh..." on-refresh="doRefresh()"></ion-refresher>
-		<div class="list card unveil" ng-repeat="item in events | filter:query">
+		<div class="list unveil" collection-repeat="event in events | orderBy:'timestamp':true | filter:query">
 			<div class="item item-avatar">
 				<img src="img/yvonne-low.jpg">
-				<h2>{{event.name}}</h2>
-				<p am-time-ago="item.timestamp"></p>
+				<h3><a href="#/profile/{{user.key}}" style="color: #000; text-decoration: none"><strong>Darren Ng</strong></a> planted a seed.</h3>
+				<p am-time-ago="event.timestamp"></p>
 			</div>
 
 			<div class="item item-body">
 				<img class="image-fill" src="img/sydney.jpg">
+				<h2>{{event.name}}</h2>				
 				<p>{{event.description}}</p>
 				<p>
 					<a href="#" class="subdued">1 Like</a>
