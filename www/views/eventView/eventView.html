@@ -1,0 +1,42 @@
+<ion-view view-title="Main">
+	<ion-nav-buttons side="left">
+		<button class="button button-icon button-clear ion-navicon" menu-toggle="left"></button>
+	</ion-nav-buttons>
+	<ion-nav-title ng-dblclick="scrollTop()"></ion-nav-title>
+	<ion-nav-buttons side="right">
+        <button class="button button-icon button-clear ion-leaf" ng-click="openAddEventModal()"></button>
+    </ion-nav-buttons>
+
+	<ion-content>
+		<div class="list">
+			<div class="item item-avatar">
+				<img src="img/yvonne-low.jpg">
+				<p><a href="#/profile/{{user.key}}" class="no-decoration-link">Darren Ng</a> planted a seed.</p>
+				<p am-time-ago="event.timestamp" class="subdued"></p>
+			</div>
+			<div class="card">
+				<img class="image-fill" src="img/sydney.jpg">
+				<div class="padding">
+					<h4>{{currentEvent.name}}</h4>
+					<p ng-bind-html="event.description"></p>
+					<p>
+						<a href="#" class="subdued"><i class="icon ion-waterdrop grey"> 1</i></a>
+						<a href="#" class="subdued"><i class="icon ion-chatbox grey"> 5</i></a>
+						<a href="#" class="subdued"><i class="fa fa-tree grey"></i> Tree</a>
+					</p>
+				</div>
+			</div>
+			<div class="item item-avatar">
+				<img src="img/yvonne-low.jpg">
+				<h2>Darren Venkman</h2>
+				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+				tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+				quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+				consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+				cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+				proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+				<p am-time-ago="event.timestamp" class="subdued"></p>
+			</div>
+		</div>
+	</ion-content>
+</ion-view>

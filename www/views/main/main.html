@@ -2,9 +2,7 @@
 	<ion-nav-buttons side="left">
 		<button class="button button-icon button-clear ion-navicon" menu-toggle="left"></button>
 	</ion-nav-buttons>
-	<ion-nav-title>
-	    
-	</ion-nav-title>
+	<ion-nav-title ng-dblclick="scrollTop()"></ion-nav-title>
 	<ion-nav-buttons side="right">
         <button class="button button-icon button-clear ion-plus" ng-click="openAddEventModal()"></button>
     </ion-nav-buttons>
@@ -23,43 +21,52 @@
 	    </div>
 
 	    <ion-refresher pulling-text="Pull to refresh..." on-refresh="doRefresh()"></ion-refresher>
-		<div class="list unveil" collection-repeat="event in events | orderBy:'timestamp':true | filter:query">
+		<div class="list card unveil" ng-repeat="event in events | orderBy:'timestamp':true | filter:query">
 			<div class="item item-avatar">
 				<img src="img/yvonne-low.jpg">
-				<h3><a href="#/profile/{{user.key}}" style="color: #000; text-decoration: none"><strong>Darren Ng</strong></a> planted a seed.</h3>
-				<p am-time-ago="event.timestamp"></p>
+				<h3><a href="#/profile/{{user.key}}" class="no-decoration-link">Darren Ng</a> planted a seed.</h3>
+				<p class="grey"><small am-time-ago="event.timestamp"></small></p>
 			</div>
 
-			<div class="item item-body">
-				<img class="image-fill" src="img/sydney.jpg">
-				<h2>{{event.name}}</h2>				
-				<p>{{event.description}}</p>
-				<p>
-					<a href="#" class="subdued">1 Like</a>
-					<a href="#" class="subdued">5 Comments</a>
-				</p>
+			<div class="item item-body" style="padding: 0;">
+				<div class="card">
+					<img class="image-fill" src="img/sydney.jpg" ng-click="viewEvent(event.$id)">
+					<div class="padding">
+						<h2 ng-click="viewEvent(event.$id)">{{event.name}}</h2>
+						<p ng-bind-html="event.description | limitTo: 200" ng-click="viewEvent(event.$id)"></p>
+						<p>
+							<a href="#" class="subdued"><i class="icon ion-waterdrop grey"> 1</i></a>
+							<a href="#" class="subdued"><i class="icon ion-chatbox grey"> 5</i></a>
+							<a href="#" class="subdued"><i class="fa fa-tree grey"></i> Tree</a>
+						</p>
+					</div>
+				</div>
 			</div>
 
 			<div class="item tabs tabs-secondary tabs-icon-left">
 				<a class="tab-item" href="#">
-					<i class="icon ion-thumbsup grey"></i>
-					Like
+					<i class="icon ion-waterdrop grey"></i>
+					Water
+				</a>
+				<a class="tab-item" href="#">
+					<i class="icon ion-leaf grey"></i>
+					Grow
 				</a>
 				<a class="tab-item" href="#">
 					<i class="icon ion-chatbox grey"></i>
 					Comment
 				</a>
 				<a class="tab-item" href="#">
-					<i class="icon ion-share grey"></i>
+					<i class="icon ion-share"></i>
 					Share
 				</a>
 			</div>
 		</div>
 		<ion-list>
-			<ion-item class="unveil" ng-repeat="item in events | filter:query" ng-class="{purchased: item.status === 'purchased'}">
+			<ion-item class="unveil" ng-repeat="event in events | filter:query" ng-class="{purchased: event.status === 'purchased'}">
 				{{event.name}}
 				{{event.description}}
-				<ion-option-button class="button-royal" ng-click="purchaseItem(item)" ng-show="item.status !== 'purchased'">
+				<ion-option-button class="button-royal" ng-click="purchaseItem(event)" ng-show="event.status !== 'purchased'">
 					<i class="icon ion-checkmark"></i>
 				</ion-option-button>
 			</ion-item>

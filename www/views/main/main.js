@@ -1,7 +1,13 @@
 angular.module('lapMobile.main', [])
-  .controller('MainCtrl', function($scope, $ionicListDelegate, $ionicModal, $ionicBackdrop, FIREBASEURL, Event, Camera) {
+  .controller('MainCtrl', function($scope, $state, $ionicScrollDelegate, $ionicListDelegate, $ionicModal, $ionicBackdrop, FIREBASEURL, Event, Camera) {
     // $scope.event = event.getAll();
     $scope.events = Event.getLastTen();
+
+    $scope.currentEvent = Event.getByEventId('-JsNmJLP9_POIjUBUsi9');
+
+    $scope.scrollTop = function() {
+        $ionicScrollDelegate.scrollTop();
+    };
 
     $scope.search = function (q) {
         $scope.query = q;
@@ -19,6 +25,10 @@ angular.module('lapMobile.main', [])
 
     $scope.isMoreDataLoadable = function () {
         // $scope.event.unshift(Event.getLastTen());
+    };
+
+    $scope.viewEvent = function(id) {
+        $state.go('app.eventView', { eventId: id });
     };
 
     // Form data add new event modal

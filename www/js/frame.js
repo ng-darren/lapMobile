@@ -14,6 +14,14 @@ angular.module('lapMobile.frame', [])
       return true;
     }
   };
+
+  $scope.isBackEnabled = function() {
+    if($state.current.name === 'app.eventView') {
+      return true;
+    } else {
+      return false;
+    }
+  };
   
   // Form data for the login modal
   $scope.loginData = {};

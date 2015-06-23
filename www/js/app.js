@@ -2,19 +2,26 @@ angular.module('lapMobile', [
     'ionic',
     'firebase',
     'angularMoment',
-    'lapMobile.main',
-    'lapMobile.frame',
 
-    'lapMobile.seed',  // Services
-    'lapMobile.event',
+    'lapMobile.frame',      // templates
+
+    'lapMobile.event',      // Services
     'lapMobile.camera',
 
-    'lapMobile.login',   // Views
+    'lapMobile.main',       // Views
+    'lapMobile.login',
+    'lapMobile.eventView',
 
     'lapMobile.elasticTextarea' // Directives
     ])
     .constant('FIREBASEURL', 'https://lapMobile.firebaseio.com/')
-    .config(function($stateProvider, $urlRouterProvider) {
+    .config(function($compileProvider, $ionicConfigProvider, $stateProvider, $urlRouterProvider) {
+        $compileProvider.imgSrcSanitizationWhitelist(/^\s*(https?|ftp|mailto|file|tel):/);
+
+        $ionicConfigProvider.views.swipeBackEnabled(false);
+        $ionicConfigProvider.backButton.text('');
+        $ionicConfigProvider.backButton.previousTitleText(false);
+        
         $stateProvider.state('app', {
             url: "/app",
             abstract: true,
@@ -39,6 +46,15 @@ angular.module('lapMobile', [
                 }
             }
         })
+        .state('app.eventView', {
+            url: "/event-view/:eventId",
+            views: {
+                'menuContent': {
+                    templateUrl: "views/eventView/eventView.html",
+                    controller: 'EventCtrl'
+                }
+            }
+        })
 
       // .state('app.single', {
       //   url: "/playlists/:playlistId",
@@ -52,9 +68,6 @@ angular.module('lapMobile', [
       
       // if none of the above states are matched, use this as the fallback
       $urlRouterProvider.otherwise('/app/main');
-    })
-    .config(function($compileProvider){
-      $compileProvider.imgSrcSanitizationWhitelist(/^\s*(https?|ftp|mailto|file|tel):/);
     })
     .run(function($ionicPlatform) {
         $ionicPlatform.ready(function() {

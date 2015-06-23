@@ -1,24 +1,27 @@
 'use strict';
 
-angular.module('lapMobile.event', []).factory('Event', function ($firebaseArray, FIREBASEURL) {
-	var eventRef = new Firebase(FIREBASEURL).child('event');
+angular.module('lapMobile.event', []).factory('Event', function ($firebaseObject, $firebaseArray, FIREBASEURL) {
+	var eventsRef = new Firebase(FIREBASEURL).child('event');
 
 	var ref, sync, eventArray;
 
     var Event = {
       getAll: function () {
-        return $firebaseArray(eventRef);
+        return $firebaseArray(eventsRef);
       },
       getLastTen: function () {
-      	var query = eventRef.orderByKey().limitToLast(4);
+      	var query = eventsRef.orderByKey().limitToLast(4);
 
         return $firebaseArray(query);
       },
-      findByEventID: function (topicID) {
-        
+      getByEventId: function (eventId) {
+        var eRef = new Firebase(FIREBASEURL).child('event').child(eventId);
+        var obj = $firebaseObject(eRef);
+
+        return obj;
       },
       createEvent: function (name, description) {
-      	eventArray = $firebaseArray(eventRef);
+      	eventArray = $firebaseArray(eventsRef);
       	return eventArray.$add({
             'name': name,
             'description': description,
@@ -30,7 +33,7 @@ angular.module('lapMobile.event', []).factory('Event', function ($firebaseArray,
             'comments': {}
         });
       },
-      createFile: function (topicID, filename) {
+      createFile: function (eventId, filename) {
         // ref = new Firebase(FIREBASE_URL + '/forum/' + topicID + '/messages');
         // sync = $firebase(ref);
 
@@ -54,5 +57,5 @@ angular.module('lapMobile.event', []).factory('Event', function ($firebaseArray,
     };
 
     return Event;
-	// return $firebaseArray(eventRef);
+	// return $firebaseArray(eventsRef);
 });
