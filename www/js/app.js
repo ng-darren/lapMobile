@@ -11,6 +11,7 @@ angular.module('lapMobile', [
     'lapMobile.main',       // Views
     'lapMobile.login',
     'lapMobile.eventView',
+    'lapMobile.treeView',
 
     'lapMobile.elasticTextarea' // Directives
     ])
@@ -55,18 +56,17 @@ angular.module('lapMobile', [
                 }
             }
         })
+        .state('app.treeView', {
+            url: "/tree-view/:eventId",
+            views: {
+                'menuContent': {
+                    templateUrl: "views/treeView/treeView.html",
+                    controller: 'TreeCtrl'
+                }
+            }
+        })
 
-      // .state('app.single', {
-      //   url: "/playlists/:playlistId",
-      //   views: {
-      //     'menuContent': {
-      //       templateUrl: "templates/playlist.html",
-      //       controller: 'PlaylistCtrl'
-      //     }
-      //   }
-      // });
-      
-      // if none of the above states are matched, use this as the fallback
+      // state fallback
       $urlRouterProvider.otherwise('/app/main');
     })
     .run(function($ionicPlatform) {
