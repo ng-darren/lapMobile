@@ -12,17 +12,17 @@
 			<div class="item item-avatar">
 				<img src="img/yvonne-low.jpg">
 				<p><a href="#/profile/{{user.key}}" class="no-decoration-link">Darren Ng</a> planted a seed.</p>
-				<p am-time-ago="event.timestamp" class="subdued"></p>
+				<p am-time-ago="currentEvent.timestamp" class="subdued"></p>
 			</div>
 			<div class="card">
 				<img class="image-fill" src="img/sydney.jpg">
 				<div class="padding">
 					<h4>{{currentEvent.name}}</h4>
-					<p ng-bind-html="event.description"></p>
+					<p ng-bind-html="currentEvent.description"></p>
 					<p>
 						<a href="#" class="subdued"><i class="icon ion-waterdrop grey"> 1</i></a>
 						<a href="#" class="subdued"><i class="icon ion-chatbox grey"> 5</i></a>
-						<a href="#" class="subdued"><i class="fa fa-tree grey"></i> Tree</a>
+						<a ui-sref="app.treeView({eventId: currentEvent.$id})" class="subdued"><i class="fa fa-tree grey"></i> Tree</a>
 					</p>
 				</div>
 			</div>
@@ -35,7 +35,7 @@
 				consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
 				cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
 				proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-				<p am-time-ago="event.timestamp" class="subdued"></p>
+				<p am-time-ago="comment.timestamp" class="subdued"></p>
 			</div>
 		</div>
 	</ion-content>

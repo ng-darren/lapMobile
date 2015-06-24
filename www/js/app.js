@@ -66,8 +66,8 @@ angular.module('lapMobile', [
             }
         })
 
-      // state fallback
-      $urlRouterProvider.otherwise('/app/main');
+        // state fallback
+        $urlRouterProvider.otherwise('/app/main');
     })
     .run(function($ionicPlatform) {
         $ionicPlatform.ready(function() {
