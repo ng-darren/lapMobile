@@ -1,53 +1,83 @@
 <ion-view view-title="Tree">
-	<ion-nav-buttons side="left">
-		<button class="button button-icon button-clear ion-navicon" menu-toggle="left"></button>
-	</ion-nav-buttons>
-	<ion-nav-title ng-dblclick="scrollTop()"></ion-nav-title>
-	<ion-nav-buttons side="right">
-        <button class="button button-icon button-clear ion-leaf" ng-click="openAddEventModal()"></button>
-    </ion-nav-buttons>
-
 	<ion-content>
-		<ion-scroll zooming="true" direction="xy" style="width: 500px; height: 1000px">
-			<div style="width: 5000px; height: 1000px">
-				<div class="tree">
-					<ul>
-						<li>
-							<a href="#">Parent</a>
-							<ul>
-								<li>
-									<a href="#">Child</a>
-									<ul>
-										<li>
-											<a href="#">Grand Child</a>
-										</li>
-									</ul>
-								</li>
-								<li>
-									<a href="#">Child</a>
-									<ul>
-										<li><a href="#">Grand Child</a></li>
-										<li>
-											<a href="#">Grand Child</a>
-											<ul>
-												<li>
-													<a href="#">Great Grand Child</a>
-												</li>
-												<li>
-													<a href="#">Great Grand Child</a>
-												</li>
-												<li>
-													<a href="#">Great Grand Child</a>
-												</li>
-											</ul>
-										</li>
-										<li><a href="#">Grand Child</a></li>
-									</ul>
-								</li>
-							</ul>
-						</li>
-					</ul>
-				</div>		
+		<ion-scroll zooming="true" direction="xy" ng-style="res">
+			<div style="width: 700px; height: 800px">
+				<div id="flipdiv">
+					<div class="tree">
+						<ul style="bottom: 20px">
+							<li>
+								<a class="flip-text" href="#">
+									<img class="image-fill" src="{{pics[9].media.m}}">
+									Parent
+								</a>
+								<ul>
+									<li>
+										<a class="flip-text" href="#">
+											<img class="image-fill" src="{{pics[8].media.m}}">
+											Child
+										</a>
+										<ul>
+											<li>
+												<a class="flip-text" href="#">
+													<img class="image-fill" src="{{pics[7].media.m}}">
+													Grand Child
+												</a>
+											</li>
+										</ul>
+									</li>
+									<li>
+										<a class="flip-text" href="#">
+											<img class="image-fill" src="{{pics[6].media.m}}">
+											Child
+										</a>
+										<ul>
+											<li>
+												<a class="flip-text" href="#">
+													<img class="image-fill" src="{{pics[5].media.m}}">
+													Grand Child
+												</a>
+											</li>
+											<li>
+												<a class="flip-text" href="#">
+													<img class="image-fill" src="{{pics[4].media.m}}">
+													Grand Child
+												</a>
+												<ul>
+													<li>
+														<a class="flip-text" href="#">
+															<img class="image-fill" src="{{pics[3].media.m}}">
+															Great Grand Child
+														</a>
+													</li>
+													<li>
+														<a class="flip-text" href="#">
+															<img class="image-fill" src="{{pics[2].media.m}}">
+															Great Grand Child
+														</a>
+													</li>
+													<li>
+														<a class="flip-text" href="#">
+															<img class="image-fill" src="{{pics[1].media.m}}">
+															Great Grand Child
+														</a>
+													</li>
+												</ul>
+											</li>
+											<li>
+												<a class="flip-text" href="#">
+													<img class="image-fill" src="{{pics[0].media.m}}">
+													Great Grand Child
+												</a>
+											</li>
+										</ul>
+									</li>
+								</ul>
+							</li>
+						</ul>
+
+						<a id="bottom"></a>
+					</div>
+				</div>
 			</div>
 		</ion-scroll>
 	</ion-content>

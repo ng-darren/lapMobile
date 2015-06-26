@@ -1,9 +1,15 @@
 angular.module('lapMobile.main', [])
-  .controller('MainCtrl', function($scope, $state, $ionicScrollDelegate, $ionicListDelegate, $ionicModal, $ionicBackdrop, FIREBASEURL, Event, Camera) {
+  .controller('MainCtrl', function($scope, $state, $http, $ionicScrollDelegate, $ionicListDelegate, $ionicModal, $ionicBackdrop, FIREBASEURL, Event, Camera) {
     // $scope.event = event.getAll();
     $scope.events = Event.getLastTen();
 
-    $scope.currentEvent = Event.getByEventId('-JsNmJLP9_POIjUBUsi9');
+    jsonFlickrFeed = function(data){
+        $scope.pics = data.items;
+    }
+
+    $http.jsonp('https://api.flickr.com/services/feeds/photos_public.gne?format=json&tags=cats').success(function (data) {
+
+    });
 
     $scope.scrollTop = function() {
         $ionicScrollDelegate.scrollTop();

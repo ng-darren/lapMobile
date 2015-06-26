@@ -57,5 +57,4 @@ angular.module('lapMobile.event', []).factory('Event', function ($firebaseObject
     };
 
     return Event;
-	// return $firebaseArray(eventsRef);
 });

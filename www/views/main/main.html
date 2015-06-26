@@ -30,7 +30,7 @@
 
 			<div class="item item-body" style="padding: 0;">
 				<div class="card">
-					<img class="image-fill" src="img/sydney.jpg" ng-click="viewEvent(event.$id)">
+					<img class="image-fill" src="{{pics[$index].media.m}}" ng-click="viewEvent(event.$id)">
 					<div class="padding">
 						<h2 ng-click="viewEvent(event.$id)">{{event.name}}</h2>
 						<p ng-bind-html="event.description | limitTo: 200" ng-click="viewEvent(event.$id)"></p>

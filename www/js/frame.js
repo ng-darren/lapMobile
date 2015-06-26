@@ -16,7 +16,7 @@ angular.module('lapMobile.frame', [])
   };
 
   $scope.isBackEnabled = function() {
-    if($state.current.name === 'app.eventView') {
+    if($state.current.name === 'app.eventView' || $state.current.name === 'app.treeView') {
       return true;
     } else {
       return false;

@@ -1,3 +1,23 @@
+#flipdiv {
+    width: 100%;
+    height: 100%;
+
+    -moz-transform: rotate(180deg);
+    -webkit-transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+    -o-transform: rotate(180deg);
+    transform: rotate(180deg);
+}
+
+.flip-text {
+	-webkit-transform:rotate(-180deg);
+	-moz-transform:rotate(-180deg); 
+	-o-transform:rotate(-180deg); 
+	transform:rotate(-180deg);
+	ms-filter:"progid:DXImageTransform.Microsoft.BasicImage(rotation=2)";
+	filter:progid:DXImageTransform.Microsoft.BasicImage(rotation=2);
+}
+
 .tree ul {
 	padding-top: 20px; position: relative;
 	
@@ -22,12 +42,12 @@
 .tree li::before, .tree li::after{
 	content: '';
 	position: absolute; top: 0; right: 50%;
-	border-top: 1px solid #ccc;
+	border-top: 4px solid #8B5A2B;
 	width: 50%; height: 20px;
 }
 .tree li::after{
 	right: auto; left: 50%;
-	border-left: 1px solid #ccc;
+	border-left: 4px solid #8B5A2B;
 }
 
 /* Remove left-right connectors from elements without any siblings */
@@ -44,7 +64,7 @@
 }
 /* Add the vertical connector to the last nodes back */
 .tree li:last-child::before{
-	border-right: 1px solid #ccc;
+	border-right: 4px solid #8B5A2B;
 	border-radius: 0 5px 0 0;
 	-webkit-border-radius: 0 5px 0 0;
 	-moz-border-radius: 0 5px 0 0;
@@ -58,14 +78,16 @@
 /* Add downward connectors from parents */
 .tree ul ul::before{
 	content: '';
-	position: absolute; top: 0; left: 50%;
-	border-left: 1px solid #ccc;
-	width: 0; height: 20px;
+	position: absolute; top: -5px; left: 50%;
+	border-left: 2px solid #8B5A2B;
+	border-right: 2px solid #8B5A2B;
+	width: 0; height: 26px;
 }
 
 .tree li a{
-	border: 1px solid #ccc;
-	padding: 5px 10px;
+	overflow: hidden;
+	max-width: 60px;
+	border: 1px solid #ddd;
 	text-decoration: none;
 	color: #666;
 	font-family: arial, verdana, tahoma;
