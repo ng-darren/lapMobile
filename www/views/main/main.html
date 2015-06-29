@@ -62,15 +62,6 @@
 				</a>
 			</div>
 		</div>
-		<ion-list>
-			<ion-item class="unveil" ng-repeat="event in events | filter:query" ng-class="{purchased: event.status === 'purchased'}">
-				{{event.name}}
-				{{event.description}}
-				<ion-option-button class="button-royal" ng-click="purchaseItem(event)" ng-show="event.status !== 'purchased'">
-					<i class="icon ion-checkmark"></i>
-				</ion-option-button>
-			</ion-item>
-		</ion-list>
 		<ion-infinite-scroll ng-if="isMoreDataLoadable()" icon="ion-loading-c" on-infinite="loadMoreData()"></ion-infinite-scroll>
 	</ion-content>
 </ion-view>

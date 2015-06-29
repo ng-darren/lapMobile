@@ -14,7 +14,7 @@ angular.module('lapMobile.treeView', [])
     $scope.width = $window.window.innerWidth;
 
     $scope.res = {
-    	'height': $window.window.innerHeight + 120 + 'px',
+    	'height': $window.window.innerHeight + 150 + 'px',
     	'width': $window.window.innerWidth + 'px'
     }
 

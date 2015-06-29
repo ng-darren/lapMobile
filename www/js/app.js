@@ -2,14 +2,20 @@ angular.module('lapMobile', [
     'ionic',
     'firebase',
     'angularMoment',
+    'ngOpenFB',
 
     'lapMobile.frame',      // templates
 
-    'lapMobile.event',      // Services
+    'lapMobile.auth',      // Services
+    'lapMobile.userIndex',
+    'lapMobile.user',
+    'lapMobile.eventIndex',
+    'lapMobile.event',
     'lapMobile.camera',
 
     'lapMobile.main',       // Views
     'lapMobile.login',
+    'lapMobile.profile',
     'lapMobile.eventView',
     'lapMobile.treeView',
 
@@ -47,6 +53,15 @@ angular.module('lapMobile', [
                 }
             }
         })
+        .state('app.profile', {
+            url: "/profile",
+            views: {
+                'menuContent': {
+                    templateUrl: "views/profile/profile.html",
+                    controller: 'profileCtrl'
+                }
+            }
+        })
         .state('app.eventView', {
             url: "/event-view/:eventId",
             views: {
@@ -69,7 +84,7 @@ angular.module('lapMobile', [
         // state fallback
         $urlRouterProvider.otherwise('/app/main');
     })
-    .run(function($ionicPlatform) {
+    .run(function($ionicPlatform, ngFB) {
         $ionicPlatform.ready(function() {
             // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
             // for form inputs)
@@ -81,4 +96,6 @@ angular.module('lapMobile', [
                 StatusBar.styleDefault();
             }
         });
+
+        ngFB.init({appId: '1465178843793458'});
     });
